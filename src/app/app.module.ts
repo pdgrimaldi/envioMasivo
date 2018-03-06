@@ -5,9 +5,12 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+
+import { CampaignService } from './home/campaign.service';
 
 
 @NgModule({
@@ -21,9 +24,10 @@ import { HomeComponent } from './home/home.component';
     AngularFontAwesomeModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CampaignService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

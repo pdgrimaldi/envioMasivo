@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { CampaignService } from './campaign.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService, private campaignService: CampaignService) { }
   model = {
     campaingName: '',
     msgToSend: ''
@@ -16,11 +17,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  sendMassiveMsjs = function () {
-    console.log(this.model.campaingName);
-    console.log(this.model.msgToSend);
-    this.toastr.success('Los mensajes han sido enviados correctamente', 'Exito!');
-    this.model.campaingName = '';
-    this.model.msgToSend = '';
+  createCampaign = function () {
+    this.campaignService.createCampaign(this.model).subscribe(
+      response => {
+        this.toastr.success('Los mensajes han sido enviados correctamente', 'Exito!');
+        this.model.campaingName = '';
+        this.model.msgToSend = '';
+      });
   };
 }

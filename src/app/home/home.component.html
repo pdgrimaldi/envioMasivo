@@ -11,7 +11,7 @@
         <div class="form-group mb-4">
           <label for="campaingName">Titulo de la campaña</label>
           <div>
-            <input id="campaingName" type="text" [(ngModel)]='model.campaingName'>
+            <input id="campaingName" placeholder="Nombre de la campaña" type="text" [(ngModel)]='model.campaingName'>
           </div>
         </div>
         <div class="form-group">
@@ -19,7 +19,7 @@
           <textarea class="form-control" id="msgToSend" placeholder="Ingrese el mensaje" [(ngModel)]='model.msgToSend'></textarea>
         </div>
         <div>
-          <button type="button" class="btn btn-default submit" (click)='sendMassiveMsjs()'>
+          <button type="button" class="btn btn-default submit" (click)='createCampaign()'>
             Crear campaña
             <i class="fa fa-paper-plane" aria-hidden="true"></i>
           </button>
