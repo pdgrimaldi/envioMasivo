@@ -1,23 +1,29 @@
 <div id="contact">
-<div class="section-content">
-  <h1 class="section-header">Envio masivo
-    <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> whatsapp</span>
-  </h1>
-  <h3>Ingrese los datos</h3>
-</div>
-<div class="contact-section">
-  <div class="container">
-    <form>
+  <div class="section-content">
+    <h1 class="section-header">Campaña de envío masivo
+      <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> whatsapp</span>
+    </h1>
+  </div>
+  <div class="contact-section">
+    <div class="container">
       <div class="offset-md-3 col-md-6">
+        <h3>Ingrese los datos</h3>
+        <div class="form-group mb-4">
+          <label for="campaingName">Titulo de la campaña</label>
+          <div>
+            <input id="campaingName" type="text" [(ngModel)]='model.campaingName'>
+          </div>
+        </div>
         <div class="form-group">
-          <label for="description">Mensaje</label>
-          <textarea class="form-control" id="description" placeholder="Ingrese el mensaje"></textarea>
+          <label for="msgToSend">Mensaje</label>
+          <textarea class="form-control" id="msgToSend" placeholder="Ingrese el mensaje" [(ngModel)]='model.msgToSend'></textarea>
         </div>
         <div>
-          <button type="button" class="btn btn-default submit" onclick="javascript:alert('enviado')">
-            <i class="fa fa-paper-plane" aria-hidden="true"></i>Enviar Mensaje</button>
+          <button type="button" class="btn btn-default submit" (click)='sendMassiveMsjs()'>
+            Crear campaña
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
-    </form>
+    </div>
   </div>
-</div>
