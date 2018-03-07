@@ -33,7 +33,7 @@ export class CampaignService {
       params = params.set('campaingName', model.campaingName).set('msgToSend', model.msgToSend);
 
     }
-    return this.httpClient.put(this.createCampaignURL, params, httpOptions)
+    return this.httpClient.post(this.createCampaignURL, params, httpOptions)
       .map(response => response)
       .catch(error => Observable.throw(error));
 
