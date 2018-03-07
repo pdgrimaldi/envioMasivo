@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   createCampaign = function () {
     this.campaignService.createCampaign(this.model).subscribe(
       response => {
+        console.log(response);
         this.toastr.success('Los mensajes han sido enviados correctamente', 'Exito!');
         this.model.campaingName = '';
         this.model.msgToSend = '';

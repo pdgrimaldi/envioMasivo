@@ -5,8 +5,8 @@
 
 export const environment = {
   production: false,
-  useJsons: true,
+  useJsons: false,
   servicesUrl: {
-    createCampaign: '/'
+    createCampaign: 'https://wappsender-api.herokuapp.com/'
   }
 };
