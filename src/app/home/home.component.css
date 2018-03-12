@@ -10,14 +10,13 @@
 
 }
 #contact{
-    
-    font-family: 'Teko', sans-serif;
+  font-family: 'Teko', sans-serif;
   padding-top: 60px;
   width: 100%;
   width: 100vw;
   height: 550px;
   background: seagreen; /* fallback for old browsers */
-    color : #fff;    
+  color : #fff;    
 }
 .contact-section{
   padding-top: 40px;
@@ -50,8 +49,6 @@ textarea.form-control {
 .submit{
   font-size: 1.1em;
   float: right;
-  width: 150px;
-  background-color: transparent;
-  color: #fff;
-
+  color: seagreen;
 }
+

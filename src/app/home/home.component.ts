@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { CampaignService } from './campaign.service';
+import { AgendaService } from '../agenda.service';
 
 @Component({
   selector: 'app-home',
@@ -9,21 +10,40 @@ import { CampaignService } from './campaign.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private toastr: ToastrService, private campaignService: CampaignService) { }
+  constructor(private toastr: ToastrService, private campaignService: CampaignService, private agendaService: AgendaService) { }
   model = {
     campaingName: '',
-    msgToSend: ''
+    msgToSend: '',
+    initDate: '',
+    destinationContacts: []
   };
+  contacts = [];
   ngOnInit() {
+    this.getContacts();
   }
+
+  getContacts = function () {
+    this.agendaService.getAgendaContacts().subscribe(
+      response => this.contacts = response.telephone_numbers,
+      error => {
+        this.toastr.error('Hubo un problema obteniendo los contactos de la agneda. Intente mas tarde', 'Atención!');
+      }
+    );
+  };
 
   createCampaign = function () {
     this.campaignService.createCampaign(this.model).subscribe(
       response => {
-        console.log(response);
         this.toastr.success('Los mensajes han sido enviados correctamente', 'Exito!');
         this.model.campaingName = '';
         this.model.msgToSend = '';
-      });
+        this.model.initDate = '';
+        this.initDate = '';
+        this.destinationContact = [];
+      },
+      error => {
+        this.toastr.error('En este momento no se pudo enviar mensajes. Intente mas tarde', 'Atención!');
+      }
+    );
   };
 }

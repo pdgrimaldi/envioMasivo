@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { CampaignService } from './home/campaign.service';
+import { AgendaService } from './agenda.service';
 
 
 @NgModule({
@@ -27,7 +28,9 @@ import { CampaignService } from './home/campaign.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [CampaignService],
+  providers: [
+    CampaignService,
+    AgendaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

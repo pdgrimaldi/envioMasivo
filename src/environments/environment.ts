@@ -7,6 +7,7 @@ export const environment = {
   production: false,
   useJsons: true,
   servicesUrl: {
-    createCampaign: '/'
+    createCampaign: '/',
+    getAgendaContacts: './assets/agenda/contacts.json'
   }
 };

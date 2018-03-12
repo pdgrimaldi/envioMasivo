@@ -8,35 +8,26 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { environment } from '../../environments/environment';
+import { environment } from '../environments/environment';
 
 
 @Injectable()
 
-export class CampaignService {
+export class AgendaService {
 
 
 
-  private createCampaignURL = environment.servicesUrl.createCampaign;
+  private getAgendaContactsURL = environment.servicesUrl.getAgendaContacts;
 
   constructor(private httpClient: HttpClient) { }
 
-  createCampaign(model) {
+  getAgendaContacts() {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-    let params = new HttpParams();
-    console.log(model);
-    if (environment.useJsons) {
-      return Observable.of('');
-    } else {
-      params = params.set('campaingName', model.campaingName).set('msgToSend', model.msgToSend).set('initDate', model.initDate)
-        .set('destinationContacts', model.destinationContacts);
 
-    }
-    return this.httpClient.post(this.createCampaignURL, params, httpOptions)
+    return this.httpClient.get(this.getAgendaContactsURL, httpOptions)
       .map(response => response)
       .catch(error => Observable.throw(error));
-
   }
 }
