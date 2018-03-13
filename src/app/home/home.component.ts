@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
         this.destinationContact = [];
       },
       error => {
-        this.toastr.error('En este momento no se pudo enviar mensajes. Intente mas tarde', 'Atención!');
+        this.toastr.error('En este momento no se puede enviar mensajes. Intente mas tarde', 'Atención!');
       }
     );
   };
