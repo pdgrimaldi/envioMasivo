@@ -26,12 +26,11 @@ export class CampaignService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
     let params = new HttpParams();
-    console.log(model);
     if (environment.useJsons) {
       return Observable.of('');
     } else {
-      params = params.set('description', model.campaingName).set('text', model.msgToSend).set('activation_date', model.initDate);        
-
+      params = params.set('description', model.campaingName).set('text', model.msgToSend).set('activation_date', model.initDate);
+      console.log(params);
     }
     return this.httpClient.post(this.createCampaignURL, params, httpOptions)
       .map(response => response)
