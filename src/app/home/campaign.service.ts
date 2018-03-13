@@ -30,8 +30,7 @@ export class CampaignService {
     if (environment.useJsons) {
       return Observable.of('');
     } else {
-      params = params.set('campaingName', model.campaingName).set('msgToSend', model.msgToSend).set('initDate', model.initDate)
-        .set('destinationContacts', model.destinationContacts);
+      params = params.set('description', model.campaingName).set('text', model.msgToSend).set('activation_date', model.initDate);        
 
     }
     return this.httpClient.post(this.createCampaignURL, params, httpOptions)
