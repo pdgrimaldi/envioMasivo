@@ -1,10 +1,7 @@
 {
   "name": "envio-masivo",
   "version": "0.0.0",
-  "engines": {
-    "node": "8.9.4",
-    "npm": "5.6.0"
-  },
+  "main": "app.js",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -13,7 +10,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot --target=production"
+    "postinstall": "ng build --aot -prod"
+  },
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.6.0"
   },
   "private": true,
   "dependencies": {
