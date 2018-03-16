@@ -1,4 +1,4 @@
-<div id="contact">
+<div id="contact" class="pt-1">
   <div class="section-content">
     <h1 class="section-header">Campaña de envío masivo
       <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> whatsapp</span>
@@ -22,16 +22,12 @@
         <div class="form-group">
           <input type="datetime-local" [(ngModel)]='model.initDate'>
         </div>
-        <label for="contactsList">Seleccione destinatario/s:</label>
-        <div class="form-group">
-          <select  id="contacts" class="pt-2 pb-2 col-md-6" multiple [(ngModel)]='model.destinationContacts'>
-            <option *ngFor="let contact of contacts" value="{{contact}}">{{contact}}</option>
-          </select>
+        <div class="pb-5">
+          <button type="button" class="btn btn-default submit" (click)='createCampaign()'>
+            Crear campaña
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+          </button>
         </div>
-        <button type="button" class="btn btn-default submit" (click)='createCampaign()'>
-          Crear campaña
-          <i class="fa fa-paper-plane" aria-hidden="true"></i>
-        </button>
       </div>
     </div>
   </div>
