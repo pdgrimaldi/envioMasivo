@@ -31,7 +31,6 @@
                 <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
             </label>
             <label>
-              {{model.initTime}}
                 Hora
                 <input id="initTime" name="initTime" [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" [(ngModel)]='model.initTime' required>
                 <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
