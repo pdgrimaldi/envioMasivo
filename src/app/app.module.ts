@@ -12,12 +12,15 @@ import { HomeComponent } from './home/home.component';
 
 import { CampaignService } from './home/campaign.service';
 import { AgendaService } from './agenda.service';
+import { LoginComponent } from './login/login.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,9 @@ import { AgendaService } from './agenda.service';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   providers: [
     CampaignService,
