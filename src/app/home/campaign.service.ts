@@ -22,6 +22,7 @@ export class CampaignService {
   constructor(private httpClient: HttpClient) { }
 
   createCampaign(model) {
+    console.log(model);
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
@@ -29,7 +30,7 @@ export class CampaignService {
     if (environment.useJsons) {
       return Observable.of('');
     } else {
-      const formattedDate = model.initDate.split('T')[0] + ' ' + model.initDate.split('T')[1];
+      const formattedDate = model.initDate + ' ' + model.initTime;
       params = {
         'text': model.msgToSend,
         'description': model.campaingName,

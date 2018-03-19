@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
     campaingName: '',
     msgToSend: '',
     initDate: '',
+    initTime: '',
     destinationContacts: []
   };
   contacts = [];

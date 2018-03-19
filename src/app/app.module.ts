@@ -12,12 +12,14 @@ import { HomeComponent } from './home/home.component';
 
 import { CampaignService } from './home/campaign.service';
 import { AgendaService } from './agenda.service';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
