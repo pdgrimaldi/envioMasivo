@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
         this.model.msgToSend = '';
         this.model.initDate = '';
         this.initDate = '';
+        this.initTime = '';
         this.destinationContact = [];
       },
       error => {
