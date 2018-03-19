@@ -27,7 +27,7 @@ export class CampaignService {
     if (environment.useJsons) {
       return Observable.of('');
     } else {
-      const formattedDate = model.initDate.toISOString().slice(0, 10) + ' ' + model.initTime.toString().slice(16, 24);
+      const formattedDate = model.initDate.toISOString().slice(0, 10) + ' ' + model.initTime.toString().slice(16, 21);
       params = {
         'text': model.msgToSend,
         'description': model.campaingName,
