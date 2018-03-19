@@ -12,7 +12,7 @@
         <div class="offset-md-3 col-md-6">
           <h3>Ingrese los datos</h3>
           <div class="form-group mb-4">
-            <label for="campaingName">Titulo de la campaña</label>
+            <label for="campaingName">Titulo:</label>
             <div>
               <input id="campaingName" name="campaingName" placeholder="Nombre de la campaña" type="text" [(ngModel)]='model.campaingName'
                 minlength="4" required #campaingName="ngModel">
@@ -20,19 +20,18 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="msgToSend">Mensaje</label>
+            <label for="msgToSend">Mensaje:</label>
             <textarea class="form-control" id="msgToSend" name="msgToSend" placeholder="Ingrese el mensaje" [(ngModel)]='model.msgToSend' required></textarea>
           </div>
-          <label for="initDate">Inicio de la campaña</label>
           <div class="form-group">
             <label>
-                Fecha
-                <input id="initDate" name="initDate" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" [(ngModel)]='model.initDate' required>
+                <div>Fecha de inicio:</div>
+                <input id="initDate" name="initDate" class="col-md-6" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" [(ngModel)]='model.initDate' required>
                 <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
             </label>
             <label>
-                Hora
-                <input id="initTime" name="initTime" [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" [(ngModel)]='model.initTime' required>
+                <div>Hora de inicio:</div>
+                <input id="initTime" name="initTime" class="col-md-6" [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" [(ngModel)]='model.initTime' required>
                 <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
             </label>
           </div>
