@@ -15,14 +15,11 @@ import { environment } from '../../environments/environment';
 
 export class CampaignService {
 
-
-
   private createCampaignURL = environment.servicesUrl.createCampaign;
 
   constructor(private httpClient: HttpClient) { }
 
   createCampaign(model) {
-    console.log(model);
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
@@ -30,7 +27,7 @@ export class CampaignService {
     if (environment.useJsons) {
       return Observable.of('');
     } else {
-      const formattedDate = model.initDate + ' ' + model.initTime;
+      const formattedDate = model.initDate.toISOString().slice(0, 10) + ' ' + model.initTimemodel.initTime.toString().slice(16, 24);
       params = {
         'text': model.msgToSend,
         'description': model.campaingName,
