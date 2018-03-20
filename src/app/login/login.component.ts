@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  model = { username: '', password: '' };
 
   constructor(private router: Router) { }
 
@@ -14,6 +15,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.router.navigate(['/home']);
+    if (this.model.username === 'admin' && this.model.password === 'admin') {
+      this.router.navigate(['/home']);
+    }
   }
 }
