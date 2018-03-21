@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if (this.model.username === 'admin' && this.model.password === 'admin') {
+    if (this.model.username == 'admin' && this.model.password == 'admin') {
       this.router.navigate(['/home']);
     }
   }
