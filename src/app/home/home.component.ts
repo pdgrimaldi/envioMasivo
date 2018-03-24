@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { CampaignService } from './campaign.service';
 import { AgendaService } from '../agenda.service';
+import { SideNavMenuModule } from 'mat-sidenav-menu';
 
 @Component({
   selector: 'app-home',

@@ -1,48 +1,51 @@
-<div id="contact" class="pt-1">
+    <div class="pt-1">
+      <div class="section-content">
+        <h1 class="section-header">Campaña de envío masivo
+          <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> whatsapp</span>
+        </h1>
+      </div>
+      <div class="contact-section">
+        <div class="container">
+          <form #campaignForm="ngForm">
 
-  <div class="section-content">
-    <h1 class="section-header">Campaña de envío masivo
-      <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> whatsapp</span>
-    </h1>
-  </div>
-  <div class="contact-section">
-    <div class="container">
-      <form #campaignForm="ngForm">
+            <div class="offset-md-3 col-md-6">
+              <h3>Ingrese los datos</h3>
+              <div class="form-group mb-4">
+                <label for="campaingName">Titulo:</label>
+                <div>
+                  <input id="campaingName" name="campaingName" placeholder="Nombre de la campaña" type="text" [(ngModel)]='model.campaingName'
+                    minlength="4" required #campaingName="ngModel">
 
-        <div class="offset-md-3 col-md-6">
-          <h3>Ingrese los datos</h3>
-          <div class="form-group mb-4">
-            <label for="campaingName">Titulo:</label>
-            <div>
-              <input id="campaingName" name="campaingName" placeholder="Nombre de la campaña" type="text" [(ngModel)]='model.campaingName'
-                minlength="4" required #campaingName="ngModel">
-
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="msgToSend">Mensaje:</label>
+                <textarea class="form-control" id="msgToSend" name="msgToSend" placeholder="Ingrese el mensaje" [(ngModel)]='model.msgToSend'
+                  required></textarea>
+              </div>
+              <div class="form-group">
+                <label>
+                  <div>Fecha de inicio:</div>
+                  <input id="initDate" name="initDate" class="col-md-6" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" [(ngModel)]='model.initDate'
+                    required>
+                  <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+                </label>
+                <label>
+                  <div>Hora de inicio:</div>
+                  <input id="initTime" name="initTime" class="col-md-6" [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" [(ngModel)]='model.initTime'
+                    required>
+                  <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
+                </label>
+              </div>
+              <div class="pb-5">
+                <button type="button" class="btn btn-default submit" [ngClass]="{'invalid': campaignForm.invalid}" (click)='createCampaign()'
+                  [disabled]="campaignForm.invalid">
+                  Crear campaña
+                  <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </button>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="msgToSend">Mensaje:</label>
-            <textarea class="form-control" id="msgToSend" name="msgToSend" placeholder="Ingrese el mensaje" [(ngModel)]='model.msgToSend' required></textarea>
-          </div>
-          <div class="form-group">
-            <label>
-                <div>Fecha de inicio:</div>
-                <input id="initDate" name="initDate" class="col-md-6" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" [(ngModel)]='model.initDate' required>
-                <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
-            </label>
-            <label>
-                <div>Hora de inicio:</div>
-                <input id="initTime" name="initTime" class="col-md-6" [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" [(ngModel)]='model.initTime' required>
-                <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
-            </label>
-          </div>
-          <div class="pb-5">
-            <button type="button" class="btn btn-default submit" [ngClass]="{'invalid': campaignForm.invalid}" (click)='createCampaign()' [disabled]="campaignForm.invalid">
-              Crear campaña
-              <i class="fa fa-paper-plane" aria-hidden="true"></i>
-            </button>
-          </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
-  </div>
-</div>

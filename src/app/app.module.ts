@@ -13,8 +13,11 @@ import { HomeComponent } from './home/home.component';
 import { CampaignService } from './home/campaign.service';
 import { AgendaService } from './agenda.service';
 import { LoginComponent } from './login/login.component';
-import { OwlDateTimeModule, OwlNativeDateTimeModule, OwlDateTimeIntl, OWL_DATE_TIME_LOCALE} from 'ng-pick-datetime';
-
+import { OwlDateTimeModule, OwlNativeDateTimeModule, OwlDateTimeIntl, OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
+import { SideNavMenuModule } from 'mat-sidenav-menu';
+import { MatButtonModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatCheckboxModule } from '@angular/material';
+import { CampaignListComponent } from './campaign-list/campaign-list.component';
+import { CampaignDetailComponent } from './campaign-list/campaign-detail/campaign-detail.component';
 
 // here is the default text string
 export const DefaultIntl = {
@@ -83,7 +86,9 @@ export const DefaultIntl = {
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    CampaignListComponent,
+    CampaignDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -94,13 +99,15 @@ export const DefaultIntl = {
     FormsModule,
     HttpClientModule,
     OwlDateTimeModule,
-    OwlNativeDateTimeModule
+    OwlNativeDateTimeModule,
+    SideNavMenuModule,
+    MatButtonModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatCheckboxModule
   ],
   providers: [
     CampaignService,
     AgendaService,
-    {provide: OwlDateTimeIntl, useValue: DefaultIntl},
-    {provide: OWL_DATE_TIME_LOCALE, useValue: 'es'}],
+    { provide: OwlDateTimeIntl, useValue: DefaultIntl },
+    { provide: OWL_DATE_TIME_LOCALE, useValue: 'es' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
