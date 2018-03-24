@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.model);
     if (this.model.username === 'admin' && this.model.password === 'admin') {
       this.router.navigate(['/home']);
     }
