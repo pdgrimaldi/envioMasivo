@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { environment } from '../../environments/environment';
+import { environment } from '../environments/environment';
 
 
 @Injectable()
@@ -16,6 +16,8 @@ import { environment } from '../../environments/environment';
 export class CampaignService {
 
   private createCampaignURL = environment.servicesUrl.createCampaign;
+  private getCampaignListURL = environment.servicesUrl.getCampaignList;
+  private getCampaignDetailURL = environment.servicesUrl.getCampaignDetail;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -37,6 +39,31 @@ export class CampaignService {
     return this.httpClient.post(this.createCampaignURL, params, httpOptions)
       .map(response => response)
       .catch(error => Observable.throw(error));
+  }
 
+  getCampaignList(user_id) {
+    let params = new HttpParams();
+    if (environment.useJsons) {
+      this.getCampaignListURL = this.getCampaignListURL.replace('{0}', user_id);
+    } else {
+      params = params.set('user_id', user_id);
+    }
+
+    return this.httpClient.get(this.getCampaignListURL, { params: params })
+      .map(response => response)
+      .catch(error => Observable.throw(error));
+  }
+
+  getCampaignDetail(user_id, campaign_id) {
+    let params = new HttpParams();
+    if (environment.useJsons) {
+      this.getCampaignDetailURL = this.getCampaignDetailURL.replace('{0}', user_id).replace('{1}', campaign_id);
+    } else {
+      params = params.set('user_id', user_id).set('campaign_id', campaign_id);
+    }
+    console.log(this.getCampaignDetailURL);
+    return this.httpClient.get(this.getCampaignDetailURL, { params: params })
+      .map(response => response)
+      .catch(error => Observable.throw(error));
   }
 }

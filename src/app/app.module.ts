@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { CampaignService } from './home/campaign.service';
+import { CampaignService } from './campaign.service';
 import { AgendaService } from './agenda.service';
 import { LoginComponent } from './login/login.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule, OwlDateTimeIntl, OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';

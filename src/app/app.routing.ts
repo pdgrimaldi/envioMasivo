@@ -10,8 +10,8 @@ export const AppRoutes: Routes = [
   { path: 'index.html', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'campaign-list', component: CampaignListComponent },
-  { path: 'campaign-detail', component: CampaignDetailComponent }
+  { path: 'campaign-list/:user_id', component: CampaignListComponent },
+  { path: 'campaign-detail/:user_id/:campaign_id', component: CampaignDetailComponent }
 ];
 
 export const ROUTING: ModuleWithProviders = RouterModule.forRoot(AppRoutes);

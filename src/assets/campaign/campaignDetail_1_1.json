@@ -1,0 +1,9 @@
+{
+	"campaign_detail": {
+		"id": 1,
+		"title": "Campaña 1",
+		"message": "Mensaje de prueba",
+		"init_date": "2018-05-20",
+		"init_time": "11:30"
+	}
+}

@@ -2,18 +2,11 @@
   <span class="asButton" routerLink="/home" routerLinkActive="active">back</span>
   <div id="list1">
     <ul>
-      <li>
-        <span class="asButton" routerLink="/campaign-detail" routerLinkActive="active">Home</span>
-      </li>
-      <li>
-        <span class="asButton" routerLink="/campaign-detail">Blog</span>
-      </li>
-      <li>
-        <span class="asButton" routerLink="/campaign-detail">About</span>
-      </li>
-      <li>
-        <span class="asButton" routerLink="/campaign-detail">Contact</span>
-      </li>
+      <div *ngFor="let campaign of campaignList">
+        <li>
+          <span class="asButton" routerLink="/campaign-detail/1/{{campaign.id}}" routerLinkActive="active">{{campaign.title}}</span>
+        </li>
+      </div>
     </ul>
   </div>
 </div>

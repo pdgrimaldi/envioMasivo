@@ -1,7 +1,15 @@
 <div class="container">
-    <span class="asButton" routerLink="/campaign-list" routerLinkActive="active">back</span>
-
+  <span class="asButton" routerLink="/campaign-list/1" routerLinkActive="active">back</span>
   <p>
-    campaign-detail works!
+    Titulo: {{campaignDetail.title}}
+  </p>
+  <p>
+    Mensaje: {{campaignDetail.message}}
+  </p>
+  <p>
+    Fecha de inicio: {{campaignDetail.init_date}}
+  </p>
+  <p>
+    Hora de inicio: {{campaignDetail.init_time}}
   </p>
 </div>
