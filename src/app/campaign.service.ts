@@ -46,7 +46,8 @@ export class CampaignService {
     if (environment.useJsons) {
       this.getCampaignListURL = this.getCampaignListURL.replace('{0}', user_id);
     } else {
-      params = params.set('user_id', user_id);
+      this.getCampaignListURL = this.getCampaignListURL.replace('{0}', user_id);
+//      params = params.set('user_id', user_id);
     }
 
     return this.httpClient.get(this.getCampaignListURL, { params: params })
@@ -59,7 +60,8 @@ export class CampaignService {
     if (environment.useJsons) {
       this.getCampaignDetailURL = this.getCampaignDetailURL.replace('{0}', user_id).replace('{1}', campaign_id);
     } else {
-      params = params.set('user_id', user_id).set('campaign_id', campaign_id);
+      this.getCampaignDetailURL = this.getCampaignDetailURL.replace('{0}', user_id).replace('{1}', campaign_id);
+     //params = params.set('user_id', user_id).set('campaign_id', campaign_id);
     }
     console.log(this.getCampaignDetailURL);
     return this.httpClient.get(this.getCampaignDetailURL, { params: params })
