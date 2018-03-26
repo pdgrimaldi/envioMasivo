@@ -8,6 +8,8 @@ export const environment = {
   useJsons: false,
   servicesUrl: {
     createCampaign: 'https://wappsender-api.herokuapp.com/api/campaign',
-    getAgendaContacts: 'https://wappsender-api.herokuapp.com/api/campaign/{0}'
+    getAgendaContacts: 'https://wappsender-api.herokuapp.com/api/campaign/{0}',
+    getCampaignList: './assets/campaign/campaignList_{0}.json',
+    getCampaignDetail: './assets/campaign/campaignDetail_{0}_{1}.json'
   }
 };
