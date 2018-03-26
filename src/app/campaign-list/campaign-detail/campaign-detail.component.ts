@@ -13,7 +13,7 @@ export class CampaignDetailComponent implements OnInit {
   constructor(private campaignService: CampaignService, private toastrService: ToastrService,
     private activateRoute: ActivatedRoute, private router: Router) { }
 
-  campaignDetail = [];
+  campaignDetail = { id: '', title: '', message: '', init_date: '', init_time: '' };
 
   ngOnInit() {
     this.getCampaignDetail();
