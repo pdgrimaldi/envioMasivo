@@ -1,9 +1,8 @@
 {
 	"campaign_detail": {
 		"id": 3,
-		"title": "Campaña 3",
-		"message": "Mensaje de prueba 3",
-		"init_date": "2018-10-20",
-		"init_time": "13:30"
+		"description": "Campaña 3",
+		"text": "Mensaje de prueba 3",
+		"activation_date": "2018-10-20 13:30"
 	}
 }
