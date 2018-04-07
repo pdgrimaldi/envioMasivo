@@ -13,7 +13,7 @@ export class CampaignDetailComponent implements OnInit {
   constructor(private campaignService: CampaignService, private toastrService: ToastrService,
     private activateRoute: ActivatedRoute, private router: Router) { }
 
-  campaignDetail = { id: '', title: '', message: '', activation_date: '', init_time: '' };
+  campaignDetail = { id: '', description: '', text: '', activation_date: '', init_time: '' };
 
   ngOnInit() {
     this.getCampaignDetail();
@@ -21,8 +21,6 @@ export class CampaignDetailComponent implements OnInit {
 
   getCampaignDetail() {
     this.activateRoute.params.subscribe((params: Params) => {
-      console.log(params);
-
       this.campaignService.getCampaignDetail(params['user_id'], params['campaign_id']).subscribe(
         result => {
           this.campaignDetail = result.campaign_detail;
