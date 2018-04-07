@@ -6,7 +6,7 @@
         <ul>
           <div *ngFor="let campaign of campaignList">
             <li>
-              <span class="asButton" routerLink="/campaign-detail/1/{{campaign.id}}" routerLinkActive="active">{{campaign.description}}</span>
+              <span class="asButton" routerLink="/campaign-detail/{{campaign.id}}" routerLinkActive="active">{{campaign.description}}</span>
             </li>
           </div>
         </ul>

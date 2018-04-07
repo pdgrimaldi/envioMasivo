@@ -68,4 +68,8 @@ export class CampaignService {
       .map(response => response)
       .catch(error => Observable.throw(error));
   }
+
+  addCampaignReceivers(receivers){
+    
+  }
 }
