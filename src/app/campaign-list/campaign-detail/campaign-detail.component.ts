@@ -24,7 +24,6 @@ export class CampaignDetailComponent implements OnInit {
       this.campaignService.getCampaignDetail(params['user_id'], params['campaign_id']).subscribe(
         result => {
           this.campaignDetail = result.campaigns[0];
-          console.log(this.campaignDetail);
         },
         error => {
           this.toastrService.error('Hubo un problema obteniendoel detalle de la campaña. Intente mas tarde', 'Atención!');
