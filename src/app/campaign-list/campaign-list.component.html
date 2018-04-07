@@ -1,12 +1,16 @@
-<div class="container">
-  <span class="asButton" routerLink="/home" routerLinkActive="active">back</span>
-  <div id="list1">
-    <ul>
-      <div *ngFor="let campaign of campaignList">
-        <li>
-          <span class="asButton" routerLink="/campaign-detail/1/{{campaign.id}}" routerLinkActive="active">{{campaign.title}}</span>
-        </li>
+<div class="contact-section">
+  <div class="container">
+    <span class="offset-md-2 col-md-8 asButton" routerLink="/home" routerLinkActive="active">back</span>
+    <div class="offset-md-3 col-md-6">
+      <div id="list1">
+        <ul>
+          <div *ngFor="let campaign of campaignList">
+            <li>
+              <span class="asButton" routerLink="/campaign-detail/1/{{campaign.id}}" routerLinkActive="active">{{campaign.title}}</span>
+            </li>
+          </div>
+        </ul>
       </div>
-    </ul>
+    </div>
   </div>
 </div>

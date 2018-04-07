@@ -18,7 +18,7 @@ export class CampaignService {
   private createCampaignURL = environment.servicesUrl.createCampaign;
   private getCampaignListURL = environment.servicesUrl.getCampaignList;
   private getCampaignDetailURL = environment.servicesUrl.getCampaignDetail;
-
+  campaignDetail = '';
   constructor(private httpClient: HttpClient) { }
 
   createCampaign(model) {
@@ -46,8 +46,8 @@ export class CampaignService {
     if (environment.useJsons) {
       this.getCampaignListURL = this.getCampaignListURL.replace('{0}', user_id);
     } else {
-      this.getCampaignListURL = this.getCampaignListURL.replace('{0}', user_id);
-//      params = params.set('user_id', user_id);
+      this.getCampaignListURL = this.getCampaignListURL;
+      params = params.set('user_id', user_id);
     }
 
     return this.httpClient.get(this.getCampaignListURL, { params: params })
@@ -56,15 +56,15 @@ export class CampaignService {
   }
 
   getCampaignDetail(user_id, campaign_id) {
+
     let params = new HttpParams();
     if (environment.useJsons) {
-      this.getCampaignDetailURL = this.getCampaignDetailURL.replace('{0}', user_id).replace('{1}', campaign_id);
+      this.campaignDetail = this.getCampaignDetailURL.replace('{0}', user_id).replace('{1}', campaign_id);
     } else {
-      this.getCampaignDetailURL = this.getCampaignDetailURL.replace('{0}', user_id).replace('{1}', campaign_id);
-     //params = params.set('user_id', user_id).set('campaign_id', campaign_id);
+      this.campaignDetail = this.getCampaignDetailURL;
+      params = params.set('user_id', user_id).set('campaign_id', campaign_id);
     }
-    console.log(this.getCampaignDetailURL);
-    return this.httpClient.get(this.getCampaignDetailURL, { params: params })
+    return this.httpClient.get(this.campaignDetail, { params: params })
       .map(response => response)
       .catch(error => Observable.throw(error));
   }

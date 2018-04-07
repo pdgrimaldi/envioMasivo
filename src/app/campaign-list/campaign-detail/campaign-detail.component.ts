@@ -21,6 +21,8 @@ export class CampaignDetailComponent implements OnInit {
 
   getCampaignDetail() {
     this.activateRoute.params.subscribe((params: Params) => {
+      console.log(params);
+
       this.campaignService.getCampaignDetail(params['user_id'], params['campaign_id']).subscribe(
         result => {
           this.campaignDetail = result.campaign_detail;

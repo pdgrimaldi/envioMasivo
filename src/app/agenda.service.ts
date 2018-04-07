@@ -17,16 +17,16 @@ export class AgendaService {
 
 
 
-  private getAgendaContactsURL = environment.servicesUrl.getAgendaContacts;
+  private getAgendaReceiversURL = environment.servicesUrl.getAgendaReceivers;
 
   constructor(private httpClient: HttpClient) { }
 
-  getAgendaContacts() {
+  getAgendaReceivers() {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
-    return this.httpClient.get(this.getAgendaContactsURL, httpOptions)
+    return this.httpClient.get(this.getAgendaReceiversURL, httpOptions)
       .map(response => response)
       .catch(error => Observable.throw(error));
   }

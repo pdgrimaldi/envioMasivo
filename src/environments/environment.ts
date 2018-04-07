@@ -8,8 +8,9 @@ export const environment = {
   useJsons: true,
   servicesUrl: {
     createCampaign: '/',
-    getAgendaContacts: './assets/agenda/contacts.json',
+    getAgendaReceivers: './assets/agenda/contacts.json',
     getCampaignList: './assets/campaign/campaignList_{0}.json',
-    getCampaignDetail: './assets/campaign/campaignDetail_{0}_{1}.json'
+    getCampaignDetail: './assets/campaign/campaignDetail_{0}_{1}.json',
+    addCampaignReceivers: '/'
   }
 };

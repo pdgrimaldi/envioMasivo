@@ -21,11 +21,11 @@ export class HomeComponent implements OnInit {
   };
   contacts = [];
   ngOnInit() {
-    this.getContacts();
+    this.getReceivers();
   }
 
-  getContacts = function () {
-    this.agendaService.getAgendaContacts().subscribe(
+  getReceivers = function () {
+    this.agendaService.getAgendaReceivers().subscribe(
       response => this.contacts = response.telephone_numbers,
       error => {
         this.toastr.error('Hubo un problema obteniendo los contactos de la agneda. Intente mas tarde', 'Atención!');
@@ -36,16 +36,15 @@ export class HomeComponent implements OnInit {
   createCampaign = function () {
     this.campaignService.createCampaign(this.model).subscribe(
       response => {
-        this.toastr.success('Los mensajes han sido enviados correctamente', 'Exito!');
+        this.toastr.success('La campaña ha sido creada correctamente', 'Exito!');
         this.model.campaingName = '';
         this.model.msgToSend = '';
         this.model.initDate = '';
-        this.initDate = '';
-        this.initTime = '';
+        this.model.initTime = '';
         this.destinationContact = [];
       },
       error => {
-        this.toastr.error('En este momento no se puede enviar mensajes. Intente mas tarde', 'Atención!');
+        this.toastr.error('En este momento no se puede crear la campaña. Intente mas tarde', 'Atención!');
       }
     );
   };
