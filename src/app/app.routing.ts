@@ -11,6 +11,7 @@ export const AppRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'campaign-list/:user_id', component: CampaignListComponent },
+  { path: 'campaign-detail/:campaign_id', component: CampaignDetailComponent },
   { path: 'campaign-detail/:user_id/:campaign_id', component: CampaignDetailComponent }
 ];
 

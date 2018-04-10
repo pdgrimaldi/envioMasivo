@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DataTableModule } from 'angular2-datatable';
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -18,6 +20,7 @@ import { SideNavMenuModule } from 'mat-sidenav-menu';
 import { MatButtonModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatCheckboxModule } from '@angular/material';
 import { CampaignListComponent } from './campaign-list/campaign-list.component';
 import { CampaignDetailComponent } from './campaign-list/campaign-detail/campaign-detail.component';
+import { RecipientsListComponent } from './recipients-list/recipients-list.component';
 
 // here is the default text string
 export const DefaultIntl = {
@@ -88,7 +91,8 @@ export const DefaultIntl = {
     HomeComponent,
     LoginComponent,
     CampaignListComponent,
-    CampaignDetailComponent
+    CampaignDetailComponent,
+    RecipientsListComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +105,8 @@ export const DefaultIntl = {
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     SideNavMenuModule,
-    MatButtonModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatCheckboxModule
+    MatButtonModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatCheckboxModule,
+    DataTableModule
   ],
   providers: [
     CampaignService,
