@@ -3,6 +3,33 @@
 		"id": 3,
 		"description": "Campaña 3",
 		"text": "Mensaje de prueba 3",
-		"activation_date": "2018-10-20 13:30"
+		"activation_date": "2018-10-20 13:30",
+		"destinations": [
+			{
+				"first_name": "Juan",
+				"last_name": "Mendoza",
+				"phone": 54966666666,
+				"interests": [
+					"Alerta de cortes",
+					"Eventos culturales"
+				]
+			},
+			{
+				"first_name": "Pepe",
+				"last_name": "Nadies",
+				"phone": 5494444444,
+				"interests": [
+					"Alerta de cortes"
+				]
+			},
+			{
+				"first_name": "Juan",
+				"last_name": "Pelotas",
+				"phone": 54966663333,
+				"interests": [
+					"Alerta de cortes"
+				]
+			}
+		]
 	}
 }
