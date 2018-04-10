@@ -11,7 +11,9 @@ export const AppRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'campaign-list', component: CampaignListComponent },
-  { path: 'campaign-detail/:campaign_id', component: CampaignDetailComponent }
+  { path: 'campaign-list/:user_id', component: CampaignListComponent },
+  { path: 'campaign-detail/:campaign_id', component: CampaignDetailComponent },
+  { path: 'campaign-detail/:user_id/:campaign_id', component: CampaignDetailComponent }
 ];
 
 export const ROUTING: ModuleWithProviders = RouterModule.forRoot(AppRoutes);

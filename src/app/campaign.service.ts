@@ -59,17 +59,17 @@ export class CampaignService {
 
     let params = new HttpParams();
     if (environment.useJsons) {
-      this.campaignDetail = this.getCampaignDetailURL.replace('{0}', user_id).replace('{1}', campaign_id);
+      this.campaignDetail = this.getCampaignDetailURL.replace('{0}', '1').replace('{1}', campaign_id);
     } else {
       this.campaignDetail = this.getCampaignDetailURL.replace('{0}', campaign_id);
-     // params = params.set('user_id', user_id).set('campaingId', campaign_id);
+      // params = params.set('user_id', user_id).set('campaingId', campaign_id);
     }
     return this.httpClient.get(this.campaignDetail, { params: params })
       .map(response => response)
       .catch(error => Observable.throw(error));
   }
 
-  addCampaignReceivers(receivers){
-    
+  addCampaignReceivers(receivers) {
+
   }
 }
