@@ -1,0 +1,35 @@
+{
+	"campaign_detail": {
+		"id": 2,
+		"title": "Campaña 2",
+		"message": "Mensaje de prueba 2",
+		"activation_date": "2018-08-20 00:30",
+		"destinations": [
+			{
+				"first_name": "Joaquin",
+				"last_name": "Salazar",
+				"phone": 5947777777,
+				"interests": [
+					"Alerta de cortes",
+					"Eventos culturales"
+				]
+			},
+			{
+				"first_name": "Juan",
+				"last_name": "Mendoza",
+				"phone": 54966666666,
+				"interests": [
+					"Alerta de cortes"
+				]
+			},
+			{
+				"first_name": "Juan",
+				"last_name": "Pelotas",
+				"phone": 54966663333,
+				"interests": [
+					"Alerta de cortes"
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,35 @@
+{
+	"campaign_detail": {
+		"id": 1,
+		"title": "Campaña 1",
+		"message": "Mensaje de prueba",
+		"activation_date": "2018-05-20 11:30",
+		"destinations": [
+			{
+				"first_name": "Pablo",
+				"last_name": "Grimaldi",
+				"phone": 5492215433404,
+				"interests": [
+					"Alerta de cortes",
+					"Eventos culturales"
+				]
+			},
+			{
+				"first_name": "Juan",
+				"last_name": "Mendoza",
+				"phone": 54966666666,
+				"interests": [
+					"Alerta de cortes"
+				]
+			},
+			{
+				"first_name": "Juan",
+				"last_name": "Pelotas",
+				"phone": 54966663333,
+				"interests": [
+					"Alerta de cortes"
+				]
+			}
+		]
+	}
+}

@@ -63,3 +63,7 @@ textarea.form-control {
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
 }
+
+.asButton{
+  cursor: pointer;
+}

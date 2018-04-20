@@ -1,0 +1,21 @@
+<div class="contact-section">
+  <div class="container">
+    <span class="offset-md-2 col-md-8 asButton" routerLink="/campaign-list" routerLinkActive="active">back</span>
+    <div class="offset-md-3 col-md-6">
+      <p>
+        Titulo: {{campaignDetail.description}}
+      </p>
+      <p>
+        Mensaje: {{campaignDetail.text}}
+      </p>
+      <p>
+        Fecha de inicio: {{campaignDetail.activation_date}}
+      </p>
+     <!-- <p>
+        Hora de inicio: {{campaignDetail.activation_date}}
+      </p>-->
+      <app-recipients-list [data]='campaignDetail.destinations'></app-recipients-list>
+    </div>
+  </div>
+</div>
+

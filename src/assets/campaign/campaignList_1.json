@@ -1,0 +1,21 @@
+{
+	"campaigns": [
+		{
+			"id": 1,
+			"description": "Campaña 1",
+			"status": 1
+		},
+		{
+			"id": 2,
+			"description": "Campaña 2",
+			"text": "Mensaje de prueba 2",
+			"status": 1
+		},
+		{
+			"id": 3,
+			"description": "Campaña 3",
+			"text": "Mensaje de prueba 3",
+			"status": 1
+		}
+	]
+}

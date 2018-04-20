@@ -1,1 +1,27 @@
-<router-outlet></router-outlet>
+<p *ngIf="!sidenav.opened">
+	<i class="fa fa-bars fa-custom asButton" aria-hidden="true" (click)="sidenav.toggle()"></i>
+</p>
+<mat-sidenav #sidenav mode="side" class="sidenav">
+	<ul class="nav flex-column" id="sideMenu">
+		<span type="button" class="closeBtn " (click)="sidenav.toggle()">
+			<i class="fa fa-times asButton fa-custom" aria-hidden="true"></i>
+		</span>
+		<li class="item">
+			<span type="button" class="nav-item sideItem px-3 asButton" id="buttonHome" routerLink="/home" routerLinkActive="active"
+			 (click)="sidenav.toggle()">
+				<i class="fa fa-home" aria-hidden="true"></i> Inicio
+			</span>
+		</li>
+		<li class="item">
+			<span type="button" class="nav-item sideItem px-3 asButton" id="buttonHome" routerLink="/campaign-list" routerLinkActive="active"
+			 (click)="sidenav.toggle()">
+				<i class="fa fa-home" aria-hidden="true"></i> Mis Campañas
+			</span>
+		</li>
+	</ul>
+</mat-sidenav>
+<mat-sidenav-container class="example-container">
+	<mat-sidenav-content>
+		<router-outlet></router-outlet>
+	</mat-sidenav-content>
+</mat-sidenav-container>

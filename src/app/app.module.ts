@@ -6,15 +6,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DataTableModule } from 'angular2-datatable';
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { CampaignService } from './home/campaign.service';
+import { CampaignService } from './campaign.service';
 import { AgendaService } from './agenda.service';
 import { LoginComponent } from './login/login.component';
-import { OwlDateTimeModule, OwlNativeDateTimeModule, OwlDateTimeIntl, OWL_DATE_TIME_LOCALE} from 'ng-pick-datetime';
-
+import { OwlDateTimeModule, OwlNativeDateTimeModule, OwlDateTimeIntl, OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
+import { SideNavMenuModule } from 'mat-sidenav-menu';
+import { MatButtonModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatCheckboxModule } from '@angular/material';
+import { CampaignListComponent } from './campaign-list/campaign-list.component';
+import { CampaignDetailComponent } from './campaign-list/campaign-detail/campaign-detail.component';
+import { RecipientsListComponent } from './recipients-list/recipients-list.component';
 
 // here is the default text string
 export const DefaultIntl = {
@@ -83,7 +89,10 @@ export const DefaultIntl = {
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    CampaignListComponent,
+    CampaignDetailComponent,
+    RecipientsListComponent
   ],
   imports: [
     BrowserModule,
@@ -94,13 +103,16 @@ export const DefaultIntl = {
     FormsModule,
     HttpClientModule,
     OwlDateTimeModule,
-    OwlNativeDateTimeModule
+    OwlNativeDateTimeModule,
+    SideNavMenuModule,
+    MatButtonModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatCheckboxModule,
+    DataTableModule
   ],
   providers: [
     CampaignService,
     AgendaService,
-    {provide: OwlDateTimeIntl, useValue: DefaultIntl},
-    {provide: OWL_DATE_TIME_LOCALE, useValue: 'es'}],
+    { provide: OwlDateTimeIntl, useValue: DefaultIntl },
+    { provide: OWL_DATE_TIME_LOCALE, useValue: 'es' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
