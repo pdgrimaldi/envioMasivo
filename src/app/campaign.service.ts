@@ -22,6 +22,7 @@ export class CampaignService {
   constructor(private httpClient: HttpClient) { }
 
   createCampaign(model) {
+    console.log(model);
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };

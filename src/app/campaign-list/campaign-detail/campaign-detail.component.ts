@@ -24,10 +24,10 @@ export class CampaignDetailComponent implements OnInit {
     this.activateRoute.params.subscribe((params: Params) => {
       this.campaignService.getCampaignDetail(params['user_id'], params['campaign_id']).subscribe(
         result => {
-          this.campaignDetail = result.campaign_detail;
+          this.campaignDetail = result.campaigns[0];
         },
         error => {
-          this.toastrService.error('Hubo un problema obteniendoel detalle de la campaña. Intente mas tarde', 'Atención!');
+          this.toastrService.error('Hubo un problema obteniendo el detalle de la campaña. Intente mas tarde', 'Atención!');
         }
       );
     });

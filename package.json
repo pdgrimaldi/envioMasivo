@@ -44,6 +44,7 @@
     "ngx-toastr": "^8.3.0",
     "rxjs": "^5.5.2",
     "typescript": "~2.4.2",
+    "xlsx": "^0.12.10",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
