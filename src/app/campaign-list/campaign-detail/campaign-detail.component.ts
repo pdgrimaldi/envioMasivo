@@ -14,7 +14,7 @@ export class CampaignDetailComponent implements OnInit {
   constructor(private campaignService: CampaignService, private toastrService: ToastrService,
     private activateRoute: ActivatedRoute, private router: Router) { }
 
-  campaignDetail = { id: '', description: '', text: '', activation_date: '', init_time: '' };
+  campaignDetail = { id: '', description: '', text: '', activation_date: '', init_time: '', destinations: null };
 
   ngOnInit() {
     this.getCampaignDetail();
