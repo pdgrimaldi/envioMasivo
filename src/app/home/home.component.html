@@ -39,7 +39,7 @@
           <div class="form-group pt-5">
             <label for="campaingName">Lista de receptores:</label>
             <table class="table table-striped">
-              <tr *ngFor="let row of destinationContact | slice:1">
+              <tr *ngFor="let row of model.destinationContacts | slice:1">
                 <td *ngFor="let val of row">
                   {{val}}
                 </td>
