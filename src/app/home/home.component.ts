@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
 
       /* save data */
-      this.model.destinationContacts = (XLSX.utils.sheet_to_json(ws, { header: 1 }));
+      this.model.destinationContacts = (XLSX.utils.sheet_to_json(ws, { header: 1, range: 1 }));
     };
     reader.readAsBinaryString(target.files[0]);
   }
