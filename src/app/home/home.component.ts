@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   onFileChange = function (evt: any) {
     /* wire up file reader */
     const target: DataTransfer = <DataTransfer>(evt.target);
+    const procesedData = [];
     if (target.files.length !== 1) throw new Error('Cannot use multiple files');
     const reader: FileReader = new FileReader();
     reader.onload = (e: any) => {
@@ -38,7 +39,11 @@ export class HomeComponent implements OnInit {
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
 
       /* save data */
-      this.model.destinationContacts = (XLSX.utils.sheet_to_json(ws, { header: 1, range: 1 }));
+      this.procesedData = (XLSX.utils.sheet_to_json(ws, { header: 1, range: 1 }));
+      this.procesedData.forEach(contact => {
+        this.model.destinationContacts.push({first_name: contact[0] , last_name: contact[1] , phone: contact[2]})
+      });
+      console.log(this.model.destinationContacts);
     };
     reader.readAsBinaryString(target.files[0]);
   }
