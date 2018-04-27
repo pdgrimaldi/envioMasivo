@@ -35,7 +35,7 @@ export class CampaignService {
         'text': model.msgToSend,
         'description': model.campaingName,
         'activation_date': formattedDate,
-        'destinations': model.destinations
+        'destinations': model.destinationContact
       };
     }
     return this.httpClient.post(this.createCampaignURL, params, httpOptions)
