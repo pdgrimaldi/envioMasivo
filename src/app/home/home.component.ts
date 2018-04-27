@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { CampaignService } from './../campaign.service';
 import { AgendaService } from '../agenda.service';
@@ -10,10 +10,11 @@ import * as XLSX from 'xlsx';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   data: any;
   constructor(private toastr: ToastrService, private campaignService: CampaignService, private agendaService: AgendaService) { }
+  public creating = false;
   model = {
     campaingName: '',
     msgToSend: '',
@@ -42,14 +43,11 @@ export class HomeComponent implements OnInit {
       /* save data */
       this.procesedData = (XLSX.utils.sheet_to_json(ws, { header: 1, range: 1 }));
       this.procesedData.forEach(contact => {
-        this.model.destinationContacts.push({first_name: contact[0] , last_name: contact[1] , phone: contact[2]});
+        this.model.destinationContacts.push({ first_name: contact[0], last_name: contact[1], phone: contact[2] });
       });
     };
     reader.readAsBinaryString(target.files[0]);
-  }
-  ngOnInit() {
-    this.getReceivers();
-  }
+  };
 
   getReceivers = function () {
     this.agendaService.getAgendaReceivers().subscribe(
@@ -61,6 +59,7 @@ export class HomeComponent implements OnInit {
   };
 
   createCampaign = function () {
+    this.creating = true;
     this.campaignService.createCampaign(this.model).subscribe(
       response => {
         this.toastr.success('La campaña ha sido creada correctamente', 'Exito!');
@@ -69,9 +68,11 @@ export class HomeComponent implements OnInit {
         this.model.initDate = '';
         this.model.initTime = '';
         this.model.destinationContacts = [];
+        this.creating = false;
       },
       error => {
         this.toastr.error('En este momento no se puede crear la campaña. Intente mas tarde', 'Atención!');
+        this.creating = false;
       }
     );
   };

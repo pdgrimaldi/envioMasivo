@@ -7,6 +7,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DataTableModule } from 'angular2-datatable';
+import { LoadingModule } from 'ngx-loading';
 
 
 import { AppComponent } from './app.component';
@@ -106,7 +107,8 @@ export const DefaultIntl = {
     OwlNativeDateTimeModule,
     SideNavMenuModule,
     MatButtonModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatCheckboxModule,
-    DataTableModule
+    DataTableModule,
+    LoadingModule
   ],
   providers: [
     CampaignService,

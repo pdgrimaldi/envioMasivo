@@ -5,3 +5,7 @@
 .contact-section{
   padding-top: 40px;
 }
+
+.loading-pf{
+  position: fixed!important;
+}

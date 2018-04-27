@@ -12,7 +12,7 @@ export class CampaignListComponent implements OnInit {
 
   constructor(private campaignService: CampaignService, private toastrService: ToastrService,
     private activateRoute: ActivatedRoute, private router: Router) { }
-
+  public loading = false;
   campaignList = [];
 
   ngOnInit() {
@@ -20,10 +20,15 @@ export class CampaignListComponent implements OnInit {
   }
 
   getCampaignList = function () {
+    this.loading = true;
     this.campaignService.getCampaignList(1).subscribe(
-      response => this.campaignList = response.campaigns,
+      response => {
+      this.campaignList = response.campaigns;
+        this.loading = false;
+      },
       error => {
         this.toastrService.error('Hubo un problema obteniendo las campañas. Intente mas tarde', 'Atención!');
+        this.loading = false;
       }
     );
   };
