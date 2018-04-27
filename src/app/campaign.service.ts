@@ -34,7 +34,8 @@ export class CampaignService {
       params = {
         'text': model.msgToSend,
         'description': model.campaingName,
-        'activation_date': formattedDate
+        'activation_date': formattedDate,
+        'destinations': model.destinations
       };
     }
     return this.httpClient.post(this.createCampaignURL, params, httpOptions)
