@@ -42,9 +42,8 @@ export class HomeComponent implements OnInit {
       /* save data */
       this.procesedData = (XLSX.utils.sheet_to_json(ws, { header: 1, range: 1 }));
       this.procesedData.forEach(contact => {
-        this.model.destinationContacts.push({first_name: contact[0] , last_name: contact[1] , phone: contact[2]})
+        this.model.destinationContacts.push({first_name: contact[0] , last_name: contact[1] , phone: contact[2]});
       });
-      console.log(this.model.destinationContacts);
     };
     reader.readAsBinaryString(target.files[0]);
   }
@@ -69,7 +68,7 @@ export class HomeComponent implements OnInit {
         this.model.msgToSend = '';
         this.model.initDate = '';
         this.model.initTime = '';
-        this.destinationContact = [];
+        this.model.destinationContacts = [];
       },
       error => {
         this.toastr.error('En este momento no se puede crear la campaña. Intente mas tarde', 'Atención!');

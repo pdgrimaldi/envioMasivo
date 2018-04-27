@@ -22,7 +22,6 @@ export class CampaignService {
   constructor(private httpClient: HttpClient) { }
 
   createCampaign(model) {
-    console.log(model);
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
@@ -35,7 +34,7 @@ export class CampaignService {
         'text': model.msgToSend,
         'description': model.campaingName,
         'activation_date': formattedDate,
-        'destinations': model.destinationContact
+        'destinations': model.destinationContacts
       };
     }
     return this.httpClient.post(this.createCampaignURL, params, httpOptions)

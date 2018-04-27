@@ -11,11 +11,13 @@
       <p>
         Fecha de inicio: {{campaignDetail.activation_date}}
       </p>
-     <!-- <p>
+      <!-- <p>
         Hora de inicio: {{campaignDetail.activation_date}}
       </p>-->
-      <app-recipients-list [data]='campaignDetail.destinations'></app-recipients-list>
+      <div class="form-group" *ngIf="campaignDetail.destinations.length> 0">
+        <label for="campaingName">Lista de receptores:</label>
+        <app-recipients-list [data]='campaignDetail.destinations'></app-recipients-list>
+      </div>
     </div>
   </div>
 </div>
-
