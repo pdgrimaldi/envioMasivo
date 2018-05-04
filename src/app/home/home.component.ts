@@ -3,7 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { CampaignService } from './../campaign.service';
 import { AgendaService } from '../agenda.service';
 import { SideNavMenuModule } from 'mat-sidenav-menu';
-import * as XLSX from 'xlsx';
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { DestinationDialogComponent } from './destination-dialog/destination-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ import * as XLSX from 'xlsx';
 export class HomeComponent {
 
   data: any;
-  constructor(private toastr: ToastrService, private campaignService: CampaignService, private agendaService: AgendaService) { }
+  constructor(private toastr: ToastrService, private campaignService: CampaignService, private agendaService: AgendaService,
+    private dialog: MatDialog) { }
   public creating = false;
   model = {
     campaingName: '',
@@ -23,31 +25,6 @@ export class HomeComponent {
     destinationContacts: []
   };
   contacts = [];
-
-  onFileChange = function (evt: any) {
-    /* wire up file reader */
-    const target: DataTransfer = <DataTransfer>(evt.target);
-    const procesedData = [];
-    // tslint:disable-next-line:curly
-    if (target.files.length !== 1) throw new Error('Cannot use multiple files');
-    const reader: FileReader = new FileReader();
-    reader.onload = (e: any) => {
-      /* read workbook */
-      const bstr: string = e.target.result;
-      const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
-
-      /* grab first sheet */
-      const wsname: string = wb.SheetNames[0];
-      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
-
-      /* save data */
-      this.procesedData = (XLSX.utils.sheet_to_json(ws, { header: 1, range: 1 }));
-      this.procesedData.forEach(contact => {
-        this.model.destinationContacts.push({ first_name: contact[0], last_name: contact[1], phone: contact[2] });
-      });
-    };
-    reader.readAsBinaryString(target.files[0]);
-  };
 
   getReceivers = function () {
     this.agendaService.getAgendaReceivers().subscribe(
@@ -76,4 +53,32 @@ export class HomeComponent {
       }
     );
   };
+  
+  resetDestinations = function (){
+    this.model.destinationContacts = [];
+  }
+
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.height = '450px';
+    dialogConfig.width = '500px';
+    dialogConfig.data = {
+      title: 'Agregar Destinatario/s',
+      destinationContacts: []
+    };
+
+    const dialogRef = this.dialog.open(DestinationDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => {
+        console.log("Dialog output:", data);
+        if (data.destinationContacts !== null){
+        this.model.destinationContacts = data.destinationContacts}
+        else{
+          this.model.destinationContacts.push({ first_name: data.first_name, last_name: data.last_name, phone: data.phone });
+        }
+      }
+    );
+  }
 }

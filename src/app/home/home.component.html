@@ -1,5 +1,5 @@
 <div class="pt-1">
-    <ngx-loading [show]="creating" [config]="{ fullScreenBackdrop: true }"></ngx-loading>
+  <ngx-loading [show]="creating" [config]="{ fullScreenBackdrop: true }"></ngx-loading>
   <div class="section-content">
     <h1 class="section-header">Campaña de envío masivo
       <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> whatsapp</span>
@@ -35,9 +35,12 @@
                 required>
               <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
             </label>
-            <input type="file" (change)="onFileChange($event)" multiple="false" />
+            <div>
+              <button (click)='openDialog()'>Agregar Destinatarios</button>
+              <button (click)='resetDestinations()'>Limpiar Destinatarios</button>
+            </div>
           </div>
-          <div class="form-group pt-5" *ngIf="model.destinationContacts.length > 0">
+          <div class="form-group pt-2" *ngIf="model.destinationContacts.length > 0">
             <label for="campaingName">Lista de receptores:</label>
             <table class="table table-striped">
               <th>Nombre</th>
