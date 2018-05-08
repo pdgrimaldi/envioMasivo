@@ -2,3 +2,11 @@
 body{
 	background: seagreen; /* fallback for old browsers */
 }
+
+.detailDialog {
+    background: transparent!important;
+}
+.mat-dialog-container{
+	align-content: center;
+	background: seagreen;
+}
