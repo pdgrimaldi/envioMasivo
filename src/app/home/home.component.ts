@@ -3,7 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CampaignService } from './../campaign.service';
 import { AgendaService } from '../agenda.service';
 import { SideNavMenuModule } from 'mat-sidenav-menu';
-import { MatDialog, MatDialogConfig } from "@angular/material";
+import { MatDialog, MatDialogConfig , MatDialogRef} from "@angular/material";
 import { DestinationDialogComponent } from './destination-dialog/destination-dialog.component';
 
 @Component({
@@ -25,6 +25,7 @@ export class HomeComponent {
     destinationContacts: []
   };
   contacts = [];
+ dialogRef: MatDialogRef<DestinationDialogComponent>;
 
   getReceivers = function () {
     this.agendaService.getAgendaReceivers().subscribe(
@@ -53,24 +54,22 @@ export class HomeComponent {
       }
     );
   };
-  
+
   resetDestinations = function (){
     this.model.destinationContacts = [];
   }
 
   openDialog() {
     const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.height = '450px';
-    dialogConfig.width = '500px';
+    dialogConfig.panelClass = 'detailDialog';
     dialogConfig.data = {
       title: 'Agregar Destinatario/s',
       destinationContacts: []
     };
 
-    const dialogRef = this.dialog.open(DestinationDialogComponent, dialogConfig);
+   this.dialogRef = this.dialog.open(DestinationDialogComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(
+    this.dialogRef.afterClosed().subscribe(
       data => {
         console.log("Dialog output:", data);
         if (data.destinationContacts !== null){
